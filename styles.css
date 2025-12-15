@@ -146,27 +146,43 @@ a:hover {
 }
 
 .lang-btn, .pdf-btn {
-    background: transparent;
-    border: 1px solid var(--gray-300);
-    border-radius: var(--border-radius);
-    padding: 6px 12px;
+    background: var(--white);
+    border: 1.5px solid var(--gray-300);
+    border-radius: 8px;
+    padding: 8px 14px;
     cursor: pointer;
     font-weight: 600;
+    font-size: var(--font-size-sm);
     color: var(--gray-700);
-    transition: all var(--transition-fast);
+    transition: all var(--transition-base);
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 6px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .lang-btn:hover, .pdf-btn:hover {
-    background-color: var(--gray-100);
-    color: var(--primary-color);
+    background-color: var(--primary-color);
+    color: var(--white);
     border-color: var(--primary-color);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(30, 58, 138, 0.15);
+}
+
+.lang-btn:active, .pdf-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .pdf-btn {
-    padding: 6px;
+    padding: 8px;
+}
+
+.pdf-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
 }
 
 .navbar .container {
@@ -279,12 +295,13 @@ a:hover {
 .btn-primary {
     background-color: var(--white);
     color: var(--primary-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .btn-primary:hover {
     background-color: var(--gray-100);
     transform: translateY(-2px);
-    box-shadow: var(--box-shadow-lg);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
 .btn-secondary {
@@ -294,8 +311,10 @@ a:hover {
 }
 
 .btn-secondary:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: var(--white);
+    color: var(--primary-color);
     transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 /* ===========================
@@ -519,8 +538,8 @@ a:hover {
 }
 
 .skill-category:hover {
-    box-shadow: var(--box-shadow-md);
-    transform: translateY(-3px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.08);
+    transform: translateY(-4px);
 }
 
 .skill-category-title {
@@ -611,9 +630,9 @@ a:hover {
 }
 
 .contact-card:hover {
-    box-shadow: var(--box-shadow-lg);
+    box-shadow: 0 12px 24px rgba(30, 58, 138, 0.12);
     border-color: var(--primary-color);
-    transform: translateY(-3px);
+    transform: translateY(-4px);
 }
 
 .contact-icon {
@@ -755,6 +774,7 @@ a:hover {
 /* ===========================
    Print Styles
    =========================== */
+@media print {
     .navbar,
     .scroll-top,
     .hero-actions,
@@ -765,32 +785,33 @@ a:hover {
     }
     
     .section {
-        padding: 20px 0;
+        padding: 16px 0;
         page-break-inside: avoid;
     }
 
     .hero {
-        padding: 40px 0;
-        color: #000;
-        background: none;
+        padding: 32px 0;
+        color: var(--gray-900);
+        background: var(--white) !important;
     }
 
     .hero-title {
-        color: #000;
+        color: var(--gray-900);
     }
 
     .hero-subtitle, .hero-location {
-        color: #333;
+        color: var(--gray-700);
     }
 
-    .timeline-item, .skill-category, .contact-card {
+    .timeline-item, .skill-category, .contact-card, .client-project {
         page-break-inside: avoid;
         break-inside: avoid;
     }
     
     body {
         background-color: var(--white);
-        font-size: 12pt;
+        font-size: 11pt;
+        line-height: 1.5;
     }
     
     .timeline-content,
@@ -802,15 +823,18 @@ a:hover {
     }
 
     .timeline::before {
-        background: #ccc;
+        background: var(--gray-300);
     }
 
     .timeline-marker {
-        border-color: #666;
+        border-color: var(--primary-color);
     }
 }
 
-/* Specific overrides for html2pdf generation */
+
+/* ===========================
+   PDF Generation Styles (html2pdf)
+   =========================== */
 .generating-pdf .navbar,
 .generating-pdf .scroll-top,
 .generating-pdf .hero-actions,
@@ -821,35 +845,54 @@ a:hover {
 }
 
 .generating-pdf .section {
-    padding: 20px 0;
+    padding: 16px 0 !important;
     page-break-inside: avoid;
 }
 
 .generating-pdf .hero {
-    padding: 40px 0;
-    color: #000;
-    background: none;
+    padding: 32px 0 !important;
+    color: var(--gray-900) !important;
+    background: var(--white) !important;
 }
 
 .generating-pdf .hero-title {
-    color: #000;
+    color: var(--gray-900) !important;
 }
 
 .generating-pdf .hero-subtitle, 
 .generating-pdf .hero-location {
-    color: #333;
+    color: var(--gray-700) !important;
 }
 
 .generating-pdf .timeline-item, 
 .generating-pdf .skill-category, 
-.generating-pdf .contact-card {
+.generating-pdf .contact-card,
+.generating-pdf .client-project {
     page-break-inside: avoid;
     break-inside: avoid;
-    box-shadow: none;
-    border: 1px solid var(--gray-300);
+    box-shadow: none !important;
+    border: 1px solid var(--gray-300) !important;
 }
 
 .generating-pdf body {
-    background-color: var(--white);
-    font-size: 12pt;
+    background-color: var(--white) !important;
+    font-size: 11pt;
+    line-height: 1.5;
+}
+
+.generating-pdf .timeline::before {
+    background: var(--gray-300) !important;
+}
+
+.generating-pdf .timeline-marker {
+    border-color: var(--primary-color) !important;
+    background-color: var(--white) !important;
+}
+
+.generating-pdf .tech-tag {
+    border: 1px solid var(--gray-300);
+}
+
+.generating-pdf .contact-icon {
+    background: var(--primary-color) !important;
 }
