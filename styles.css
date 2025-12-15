@@ -358,7 +358,7 @@ a:hover {
    About Section
    =========================== */
 .about-section {
-    background-color: var(--white);
+    background-color: #f8fafc;
 }
 
 .about-content {
@@ -377,7 +377,7 @@ a:hover {
    Experience Section - Timeline
    =========================== */
 .experience-section {
-    background-color: var(--light-gray);
+    background-color: #f8fafc;
 }
 
 .timeline {
@@ -520,7 +520,7 @@ a:hover {
 
 .client-project {
     padding: var(--spacing-md);
-    background-color: var(--light-gray);
+    background-color: #f8fafc;
     border-radius: var(--border-radius);
     border-left: 3px solid var(--accent-color);
 }
