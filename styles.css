@@ -139,6 +139,36 @@ a:hover {
     z-index: 1000;
 }
 
+.nav-controls {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.lang-btn, .pdf-btn {
+    background: transparent;
+    border: 1px solid var(--gray-300);
+    border-radius: var(--border-radius);
+    padding: 6px 12px;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--gray-700);
+    transition: all var(--transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lang-btn:hover, .pdf-btn:hover {
+    background-color: var(--gray-100);
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.pdf-btn {
+    padding: 6px;
+}
+
 .navbar .container {
     display: flex;
     justify-content: space-between;
@@ -660,7 +690,7 @@ a:hover {
     .nav-menu {
         position: fixed;
         left: -100%;
-        top: 60px;
+        top: 70px;
         flex-direction: column;
         background-color: var(--white);
         width: 100%;

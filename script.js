@@ -105,3 +105,90 @@ if (window.location.hostname !== 'localhost' && window.location.hostname !== '12
     console.warn = function() {};
     console.error = function() {};
 }
+
+/* ===========================
+   i18n Implementation
+   =========================== */
+let currentLang = localStorage.getItem('cv_lang') || 'es';
+const langToggleBtn = document.getElementById('langToggle');
+const langText = langToggleBtn.querySelector('.lang-text');
+
+function getNestedTranslation(obj, path) {
+    return path.split('.').reduce((prev, curr) => {
+        return prev ? prev[curr] : null;
+    }, obj);
+}
+
+function updateContent() {
+    // Update basic text elements
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        const translation = getNestedTranslation(translations[currentLang], key);
+        if (translation) {
+            element.textContent = translation;
+        }
+    });
+
+    // Update list items (for job responsibilities)
+    document.querySelectorAll('[data-i18n-list]').forEach(list => {
+        const key = list.getAttribute('data-i18n-list');
+        const items = getNestedTranslation(translations[currentLang], key);
+        if (Array.isArray(items)) {
+            list.innerHTML = items.map(item => `<li>${item}</li>`).join('');
+        }
+    });
+
+    // Update button text and html lang attribute
+    langText.textContent = currentLang.toUpperCase();
+    document.documentElement.lang = currentLang;
+}
+
+if (langToggleBtn) {
+    langToggleBtn.addEventListener('click', () => {
+        currentLang = currentLang === 'es' ? 'en' : 'es';
+        localStorage.setItem('cv_lang', currentLang);
+        updateContent();
+    });
+}
+
+// Initialize content on load
+if (typeof translations !== 'undefined') {
+    updateContent();
+} else {
+    console.error('Translations not loaded');
+}
+
+/* ===========================
+   PDF Export
+   =========================== */
+const pdfBtn = document.getElementById('pdfBtn');
+
+if (pdfBtn) {
+    pdfBtn.addEventListener('click', () => {
+        const element = document.body;
+        // Clone body to modify for print without affecting current view
+        // Ideally we just print, but html2pdf takes an element.
+        // We can hide controls for the PDF generation by using the 'ignore' class or CSS media queries handled by html2pdf overrides
+        
+        // Temporarily hide the navbar actions for the PDF
+        const navbar = document.getElementById('navbar');
+        const originalDisplay = navbar.style.display;
+        navbar.style.display = 'none';
+
+        const opt = {
+            margin: [0, 0],
+            filename: `CV_Martin_Romito_${currentLang.toUpperCase()}.pdf`,
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2, useCORS: true },
+            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        };
+
+        // Generate PDF and then restore navbar
+        html2pdf().set(opt).from(element).save().then(() => {
+            navbar.style.display = originalDisplay;
+        }, (err) => {
+            console.error(err);
+            navbar.style.display = originalDisplay;
+        });
+    });
+}
