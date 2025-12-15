@@ -166,29 +166,32 @@ const pdfBtn = document.getElementById('pdfBtn');
 if (pdfBtn) {
     pdfBtn.addEventListener('click', () => {
         const element = document.body;
-        // Clone body to modify for print without affecting current view
-        // Ideally we just print, but html2pdf takes an element.
-        // We can hide controls for the PDF generation by using the 'ignore' class or CSS media queries handled by html2pdf overrides
         
-        // Temporarily hide the navbar actions for the PDF
-        const navbar = document.getElementById('navbar');
-        const originalDisplay = navbar.style.display;
-        navbar.style.display = 'none';
-
+        // Configuration for better PDF output
         const opt = {
-            margin: [0, 0],
-            filename: `CV_Martin_Romito_${currentLang.toUpperCase()}.pdf`,
-            image: { type: 'jpeg', quality: 0.98 },
-            html2canvas: { scale: 2, useCORS: true },
-            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            margin:       [10, 0, 10, 0], // Top, Right, Bottom, Left margins in mm
+            filename:     `CV_Martin_Romito_${currentLang.toUpperCase()}.pdf`,
+            image:        { type: 'jpeg', quality: 1 },
+            html2canvas:  { 
+                scale: 2, 
+                useCORS: true,
+                logging: false,
+                letterRendering: true,
+                scrollY: 0
+            },
+            jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
+            pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] }
         };
 
-        // Generate PDF and then restore navbar
+        // Add a class to body to trigger print styles specifically for html2pdf
+        document.body.classList.add('generating-pdf');
+
+        // Generate PDF and then cleanup
         html2pdf().set(opt).from(element).save().then(() => {
-            navbar.style.display = originalDisplay;
+            document.body.classList.remove('generating-pdf');
         }, (err) => {
             console.error(err);
-            navbar.style.display = originalDisplay;
+            document.body.classList.remove('generating-pdf');
         });
     });
 }

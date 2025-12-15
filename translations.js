@@ -56,11 +56,13 @@ const translations = {
                 frontend: "Frontend",
                 backend: "Backend",
                 database: {
+                    title: "Bases de Datos",
                     sql: "SQL",
                     design: "Database Design",
                     mongodb: "MongoDB"
                 },
                 devops: {
+                    title: "DevOps & CI/CD",
                     openshift: "OpenShift (OCP)",
                     git: "Git",
                     jira: "Jira",
@@ -147,11 +149,13 @@ const translations = {
                 frontend: "Frontend",
                 backend: "Backend",
                 database: {
+                    title: "Databases",
                     sql: "SQL",
                     design: "Database Design",
                     mongodb: "MongoDB"
                 },
                 devops: {
+                    title: "DevOps & CI/CD",
                     openshift: "OpenShift (OCP)",
                     git: "Git",
                     jira: "Jira",

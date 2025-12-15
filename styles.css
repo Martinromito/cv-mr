@@ -43,10 +43,10 @@
     
     /* Layout */
     --max-width: 1200px;
-    --border-radius: 8px;
-    --box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-    --box-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    --box-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --border-radius: 12px;
+    --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    --box-shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+    --box-shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
     
     /* Transitions */
     --transition-fast: 150ms ease-in-out;
@@ -66,9 +66,9 @@ html {
 body {
     font-family: var(--font-primary);
     font-size: var(--font-size-base);
-    line-height: 1.6;
-    color: var(--gray-800);
-    background-color: var(--light-gray);
+    line-height: 1.7;
+    color: var(--gray-700);
+    background-color: #f0f4f8;
 }
 
 /* ===========================
@@ -755,19 +755,42 @@ a:hover {
 /* ===========================
    Print Styles
    =========================== */
-@media print {
     .navbar,
     .scroll-top,
-    .hero-actions {
-        display: none;
+    .hero-actions,
+    .pdf-btn,
+    .lang-btn,
+    .nav-toggle {
+        display: none !important;
     }
     
     .section {
+        padding: 20px 0;
         page-break-inside: avoid;
+    }
+
+    .hero {
+        padding: 40px 0;
+        color: #000;
+        background: none;
+    }
+
+    .hero-title {
+        color: #000;
+    }
+
+    .hero-subtitle, .hero-location {
+        color: #333;
+    }
+
+    .timeline-item, .skill-category, .contact-card {
+        page-break-inside: avoid;
+        break-inside: avoid;
     }
     
     body {
         background-color: var(--white);
+        font-size: 12pt;
     }
     
     .timeline-content,
@@ -775,5 +798,58 @@ a:hover {
     .contact-card {
         box-shadow: none;
         border: 1px solid var(--gray-300);
+        page-break-inside: avoid;
     }
+
+    .timeline::before {
+        background: #ccc;
+    }
+
+    .timeline-marker {
+        border-color: #666;
+    }
+}
+
+/* Specific overrides for html2pdf generation */
+.generating-pdf .navbar,
+.generating-pdf .scroll-top,
+.generating-pdf .hero-actions,
+.generating-pdf .pdf-btn,
+.generating-pdf .lang-btn,
+.generating-pdf .nav-toggle {
+    display: none !important;
+}
+
+.generating-pdf .section {
+    padding: 20px 0;
+    page-break-inside: avoid;
+}
+
+.generating-pdf .hero {
+    padding: 40px 0;
+    color: #000;
+    background: none;
+}
+
+.generating-pdf .hero-title {
+    color: #000;
+}
+
+.generating-pdf .hero-subtitle, 
+.generating-pdf .hero-location {
+    color: #333;
+}
+
+.generating-pdf .timeline-item, 
+.generating-pdf .skill-category, 
+.generating-pdf .contact-card {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid var(--gray-300);
+}
+
+.generating-pdf body {
+    background-color: var(--white);
+    font-size: 12pt;
 }

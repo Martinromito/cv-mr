@@ -4,7 +4,7 @@
 
 Tu CV profesional ha sido desplegado exitosamente en tu nueva cuenta de Vercel!
 
-**URL de Producción:** https://cv-martin-romito-g2r07wspd-martin-romitos-projects.vercel.app
+**URL de Producción:** https://cv-martin-romito-5ll291rox-martin-romitos-projects.vercel.app
 
 **Proyecto:** cv-martin-romito
 
@@ -31,8 +31,9 @@ Tu CV profesional ha sido desplegado exitosamente en tu nueva cuenta de Vercel!
 ## 🚀 Información del Despliegue
 
 **Plataforma:** Vercel  
-**Scope:** proyect-pampa  
-**Proyecto:** cv-vercel  
+**Plataforma:** Vercel  
+**Scope:** martinromito  
+**Proyecto:** cv-martin-romito  
 **Estado:** ✅ Desplegado en Producción
 
 ---
@@ -104,7 +105,7 @@ Vercel automáticamente detectará los cambios y actualizará tu sitio en segund
 
 ## 💡 Próximos Pasos Sugeridos
 
-1. **Visita tu CV en producción:** https://cv-vercel-nrs758qta-proyect-pampa.vercel.app
+1. **Visita tu CV en producción:** https://cv-martin-romito-5ll291rox-martin-romitos-projects.vercel.app
 2. **Comparte la URL** con reclutadores y en tu perfil de LinkedIn
 3. **Personaliza el dominio** (`mromito-resume.online`):
    - Ve a tu dashboard de Vercel > Settings > Domains.
