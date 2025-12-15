@@ -819,38 +819,68 @@ a:hover {
     .navbar,
     .scroll-top,
     .hero-actions,
-    .nav-toggle {
+    .nav-toggle,
+    .footer {
         display: none !important;
     }
     
+    * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    
+    body {
+        background-color: var(--white) !important;
+        font-size: 10pt;
+        line-height: 1.4;
+        margin: 0;
+        padding: 0;
+    }
+    
     .section {
-        padding: 16px 0;
+        padding: 10px 0;
         page-break-inside: avoid;
     }
 
     .hero {
-        padding: 32px 0;
-        color: var(--gray-900);
+        padding: 15px 0;
+        color: var(--gray-900) !important;
         background: var(--white) !important;
+        page-break-after: avoid;
+    }
+    
+    .hero-content {
+        gap: var(--spacing-md);
+    }
+    
+    .profile-photo {
+        width: 120px;
+        height: 120px;
+        page-break-inside: avoid;
     }
 
     .hero-title {
-        color: var(--gray-900);
+        color: var(--gray-900) !important;
+        font-size: 20pt;
+        margin-bottom: 5px;
     }
 
     .hero-subtitle, .hero-location {
-        color: var(--gray-700);
+        color: var(--gray-700) !important;
+        font-size: 11pt;
+        margin-bottom: 3px;
+    }
+    
+    .section-title {
+        font-size: 16pt;
+        margin-bottom: 10px;
+        page-break-after: avoid;
     }
 
     .timeline-item, .skill-category, .contact-card, .client-project {
         page-break-inside: avoid;
         break-inside: avoid;
-    }
-    
-    body {
-        background-color: var(--white);
-        font-size: 11pt;
-        line-height: 1.5;
+        margin-bottom: 10px;
     }
     
     .timeline-content,
@@ -858,7 +888,12 @@ a:hover {
     .contact-card {
         box-shadow: none;
         border: 1px solid var(--gray-300);
-        page-break-inside: avoid;
+        padding: 8px;
+    }
+    
+    .client-project {
+        padding: 8px;
+        margin-top: 8px;
     }
 
     .timeline::before {
@@ -868,6 +903,23 @@ a:hover {
     .timeline-marker {
         border-color: var(--primary-color);
     }
+    
+    .skills-grid {
+        gap: 10px;
+    }
+    
+    .contact-methods {
+        gap: 10px;
+    }
+    
+    /* Ensure no orphan pages */
+    .about-section,
+    .experience-section,
+    .skills-section,
+    .contact-section {
+        page-break-before: auto;
+    }
+}
 }
 
 
