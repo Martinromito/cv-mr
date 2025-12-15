@@ -182,9 +182,9 @@ if (pdfBtn) {
         
         const element = document.body;
         
-        // Configuration for better PDF output
+        // Configuration for better PDF output with preview
         const opt = {
-            margin:       [8, 8, 8, 8], // Top, Right, Bottom, Left margins in mm
+            margin:       [8, 8, 8, 8],
             filename:     `CV_Martin_Romito_${currentLang.toUpperCase()}.pdf`,
             image:        { type: 'jpeg', quality: 0.98 },
             html2canvas:  { 
@@ -219,11 +219,17 @@ if (pdfBtn) {
             // Small delay to ensure styles are applied
             await new Promise(resolve => setTimeout(resolve, 100));
 
-            // Generate PDF
-            await html2pdf().set(opt).from(element).save();
+            // Generate PDF and open preview window instead of direct download
+            const pdfBlob = await html2pdf().set(opt).from(element).output('blob');
+            
+            // Create blob URL for preview
+            const blobUrl = URL.createObjectURL(pdfBlob);
+            
+            // Open in new window for preview
+            window.open(blobUrl, '_blank');
             
             // Success feedback
-            console.log('PDF generated successfully');
+            console.log('PDF preview opened successfully');
         } catch (err) {
             console.error('Error generating PDF:', err);
             alert('Error al generar el PDF. Por favor, intente nuevamente.');

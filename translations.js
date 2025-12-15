@@ -89,7 +89,8 @@ const translations = {
             locationText: "Luján, Buenos Aires, Argentina"
         },
         footer: {
-            rights: "© 2025 Martin Nicolas Romito. Todos los derechos reservados."
+            rights: "© 2025 Martin Nicolas Romito. Todos los derechos reservados.",
+            pdfBtn: "Descargar PDF"
         }
     },
     en: {
@@ -182,7 +183,8 @@ const translations = {
             locationText: "Luján, Buenos Aires, Argentina"
         },
         footer: {
-            rights: "© 2025 Martin Nicolas Romito. All rights reserved."
+            rights: "© 2025 Martin Nicolas Romito. All rights reserved.",
+            pdfBtn: "Download PDF"
         }
     }
 };
