@@ -20,19 +20,34 @@
         <div class="container">
             <div class="nav-brand">MNR</div>
             
-            <div class="nav-controls">
-                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#about" class="nav-link" data-i18n="nav.about">Sobre Mí</a></li>
                 <li><a href="#experience" class="nav-link" data-i18n="nav.experience">Experiencia</a></li>
                 <li><a href="#skills" class="nav-link" data-i18n="nav.skills">Habilidades</a></li>
                 <li><a href="#contact" class="nav-link" data-i18n="nav.contact">Contacto</a></li>
+                <li class="nav-controls">
+                    <button id="langToggle" class="lang-btn" aria-label="Switch Language">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                        </svg>
+                        <span class="lang-text">ES</span>
+                    </button>
+                    <button id="pdfBtn" class="pdf-btn" aria-label="Download PDF">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                    </button>
+                </li>
             </ul>
         </div>
     </nav>
@@ -449,27 +464,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <p class="footer-text" data-i18n="footer.rights">&copy; 2025 Martin Nicolas Romito. Todos los derechos reservados.</p>
-                <div class="footer-controls">
-                    <button id="langToggle" class="lang-btn" aria-label="Switch Language">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <line x1="2" y1="12" x2="22" y2="12"></line>
-                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                        </svg>
-                        <span class="lang-text">ES</span>
-                    </button>
-                    <button id="pdfBtn" class="pdf-btn" aria-label="Download PDF">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="7 10 12 15 17 10"></polyline>
-                            <line x1="12" y1="15" x2="12" y2="3"></line>
-                        </svg>
-                        <span data-i18n="footer.pdfBtn">Descargar PDF</span>
-                    </button>
-                </div>
-            </div>
+            <p data-i18n="footer.rights">&copy; 2025 Martin Nicolas Romito. Todos los derechos reservados.</p>
         </div>
     </footer>
 
