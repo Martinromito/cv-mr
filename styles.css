@@ -568,7 +568,7 @@ a:hover {
 }
 
 .skill-category {
-    background-color: var(--light-gray);
+    background-color: var(--light-white);
     padding: var(--spacing-lg);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
