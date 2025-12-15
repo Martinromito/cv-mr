@@ -330,28 +330,28 @@ a:hover {
 }
 
 .btn-primary {
-    background-color: var(--white);
-    color: var(--primary-color);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: var(--primary-color);
+    color: var(--white);
+    box-shadow: 0 2px 4px rgba(30, 58, 138, 0.2);
 }
 
 .btn-primary:hover {
-    background-color: var(--gray-100);
+    background-color: var(--primary-dark);
     transform: translateY(-2px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 16px rgba(30, 58, 138, 0.3);
 }
 
 .btn-secondary {
     background-color: transparent;
-    color: var(--white);
-    border-color: var(--white);
+    color: var(--primary-color);
+    border-color: var(--primary-color);
 }
 
 .btn-secondary:hover {
-    background-color: var(--white);
-    color: var(--primary-color);
+    background-color: var(--primary-color);
+    color: var(--white);
     transform: translateY(-2px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 6px rgba(30, 58, 138, 0.15);
 }
 
 /* ===========================
