@@ -376,7 +376,8 @@ a:hover {
 /* ===========================
    Experience Section - Timeline
    =========================== */
-.experience-section {
+.experience-section,
+.education-section {
     background-color: #f8fafc;
 }
 
@@ -768,6 +769,11 @@ a:hover {
     .nav-toggle {
         display: flex;
     }
+
+    .hero-content {
+        flex-direction: column;
+        text-align: center; /* Ensure text is centered when stacked */
+    }
     
     .hero-title {
         font-size: var(--font-size-3xl);
@@ -929,7 +935,7 @@ a:hover {
         page-break-before: auto;
     }
 }
-}
+
 
 
 /* ===========================

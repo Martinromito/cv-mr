@@ -3,6 +3,7 @@ const translations = {
         nav: {
             about: "Sobre Mí",
             experience: "Experiencia",
+            education: "Educación",
             skills: "Habilidades",
             contact: "Contacto"
         },
@@ -48,6 +49,21 @@ const translations = {
                         "Participación en revisiones de código y mejores prácticas de desarrollo"
                     ]
                 }
+            }
+        },
+        education: {
+            title: "Educación",
+            unlu: {
+                institution: "Universidad Nacional de Luján",
+                degree: "Licenciatura en Sistemas",
+                period: "Mar. 2021 - Actualidad",
+                field: "Desarrollo de software"
+            },
+            secondary: {
+                institution: "Escuela Secundaria Nº 1 Luján",
+                degree: "Diploma de Escuela Secundaria",
+                period: "Mar. 2013 – Dic. 2018",
+                location: "Luján, Buenos Aires, Argentina"
             }
         },
         skills: {
@@ -97,6 +113,7 @@ const translations = {
         nav: {
             about: "About Me",
             experience: "Experience",
+            education: "Education",
             skills: "Skills",
             contact: "Contact"
         },
@@ -142,6 +159,21 @@ const translations = {
                         "Participation in code reviews and development best practices"
                     ]
                 }
+            }
+        },
+        education: {
+            title: "Education",
+            unlu: {
+                institution: "National University of Luján",
+                degree: "Bachelor's in Systems",
+                period: "Mar 2021 - Present",
+                field: "Software Development"
+            },
+            secondary: {
+                institution: "High School Nº 1 Luján",
+                degree: "High School Diploma",
+                period: "Mar 2013 – Dec 2018",
+                location: "Luján, Buenos Aires, Argentina"
             }
         },
         skills: {
