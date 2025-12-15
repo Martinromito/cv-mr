@@ -1,0 +1,19 @@
+{
+  "name": "cv-martin-romito",
+  "version": "1.0.0",
+  "description": "CV profesional de Martin Nicolas Romito - Full Stack Developer",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve .",
+    "start": "npx serve ."
+  },
+  "keywords": [
+    "cv",
+    "curriculum",
+    "portfolio",
+    "full-stack",
+    "developer"
+  ],
+  "author": "Martin Nicolas Romito",
+  "license": "MIT"
+}
