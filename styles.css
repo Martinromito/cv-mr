@@ -280,6 +280,32 @@ a:hover {
 }
 
 /* ===========================
+   Profile Photo
+   =========================== */
+.profile-photo {
+    width: 180px;
+    height: 180px;
+    margin: 0 auto var(--spacing-xl);
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: all var(--transition-base);
+}
+
+.profile-photo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ===========================
    Buttons
    =========================== */
 .btn {
@@ -744,6 +770,12 @@ a:hover {
     .hero-actions {
         flex-direction: column;
         gap: var(--spacing-sm);
+    }
+    
+    .profile-photo {
+        width: 140px;
+        height: 140px;
+        margin-bottom: var(--spacing-lg);
     }
     
     .timeline {
