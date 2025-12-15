@@ -164,90 +164,16 @@ if (typeof translations !== 'undefined') {
 const pdfBtn = document.getElementById('pdfBtn');
 
 if (pdfBtn) {
-    pdfBtn.addEventListener('click', async () => {
-        // Check if html2pdf is loaded
-        if (typeof html2pdf === 'undefined') {
-            alert('PDF library is still loading. Please try again in a moment.');
-            return;
-        }
-
-        // Add loading state
-        const originalHTML = pdfBtn.innerHTML;
-        pdfBtn.disabled = true;
-        pdfBtn.innerHTML = `
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="animation: spin 1s linear infinite;">
-                <path d="M21 12a9 9 0 1 1-6.219-8.56"></path>
-            </svg>
-        `;
+    pdfBtn.addEventListener('click', () => {
+        // Add a class to body to trigger print styles
+        document.body.classList.add('generating-pdf');
         
-        const element = document.body;
-        
-        // Configuration for better PDF output with preview
-        const opt = {
-            margin:       [8, 8, 8, 8],
-            filename:     `CV_Martin_Romito_${currentLang.toUpperCase()}.pdf`,
-            image:        { type: 'jpeg', quality: 0.98 },
-            html2canvas:  { 
-                scale: 2,
-                useCORS: true,
-                logging: false,
-                letterRendering: true,
-                scrollY: -window.scrollY,
-                windowWidth: document.documentElement.scrollWidth,
-                windowHeight: document.documentElement.scrollHeight
-            },
-            jsPDF:        { 
-                unit: 'mm', 
-                format: 'a4', 
-                orientation: 'portrait',
-                compress: true
-            },
-            pagebreak:    { 
-                mode: ['avoid-all', 'css', 'legacy'],
-                before: '.section',
-                avoid: ['.timeline-item', '.skill-category', '.contact-card', '.client-project']
-            }
-        };
-
-        try {
-            // Add a class to body to trigger print styles
-            document.body.classList.add('generating-pdf');
-            
-            // Scroll to top before generating
-            window.scrollTo(0, 0);
-            
-            // Small delay to ensure styles are applied
-            await new Promise(resolve => setTimeout(resolve, 100));
-
-            // Generate PDF and open preview window instead of direct download
-            const pdfBlob = await html2pdf().set(opt).from(element).output('blob');
-            
-            // Create blob URL for preview
-            const blobUrl = URL.createObjectURL(pdfBlob);
-            
-            // Open in new window for preview
-            window.open(blobUrl, '_blank');
-            
-            // Success feedback
-            console.log('PDF preview opened successfully');
-        } catch (err) {
-            console.error('Error generating PDF:', err);
-            alert('Error al generar el PDF. Por favor, intente nuevamente.');
-        } finally {
-            // Cleanup
+        // Small delay to ensure styles are applied, then trigger print dialog
+        setTimeout(() => {
+            window.print();
+            // Remove class after print dialog is closed
             document.body.classList.remove('generating-pdf');
-            pdfBtn.disabled = false;
-            pdfBtn.innerHTML = originalHTML;
-        }
+        }, 100);
     });
 }
 
-// Add spinning animation for loading state
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes spin {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
-    }
-`;
-document.head.appendChild(style);
